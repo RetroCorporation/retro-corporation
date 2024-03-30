@@ -1033,6 +1033,10 @@ let Rocket_voltic = sprites.create(assets.image`Fusee entiere`, SpriteKind.Fusé
 Rocket_voltic.setImage(assets.image`Fusse avec un reacteur`)
 Rocket_voltic.setPosition(400, 324)
 game.splash("Trouver une clé")
+forever(function () {
+    music.setVolume(20)
+    music.play(music.createSong(hex`0078000408040206001c00010a006400f401640000040000000000000000000000000000000002ae0000000400011d04000800012208000c0001220c001000012410001400021e2518001c0001221c002000021e2720002400021b2224002800012228002c00021b2a2c003000012230003400011d34003800012438003c0001293c004000012040004400011b44004800012748004c00021d205000540002202754005800012c58005c000319222760006400031d222968006c0001246c007000022027700074000129740078000220247c008000012209010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c80061000800090001071400150001071c001d0001072400250001072c002d0001073400350001083800390001084000410001074400450001064800490001074c004d0001075000510001075400550001075800590001075c005d00010764006500020408`), music.PlaybackMode.UntilDone)
+})
 // Pour faire réapparaitre le joueur quand on touche un mur dans la boite
 forever(function () {
     if (Player1.overlapsWith(Mur_Boite_1)) {
@@ -1680,22 +1684,6 @@ forever(function () {
         boule_de_bowling.sy = 0.5
     }
 })
-// Deuxième dialogue avec l'astronaute
-forever(function () {
-    if (picture == 5) {
-        if (Player1.overlapsWith(Astronaute)) {
-            controller.moveSprite(Player1, 0, 0)
-            story.spriteSayText(Astronaute, "Bravo, tu as trouvé la deuxième clé")
-            story.spriteSayText(Astronaute, "Mais il en reste encore une")
-            story.spriteSayText(Astronaute, "Pour cela, tu vas devoir me rendre un service")
-            story.spriteSayText(Astronaute, "Tu dois me ramener un réacteur de fusée")
-            story.spriteSayText(Astronaute, "Bonne chance")
-            game.splash("Ramener le réacteur de fusée à Apollo")
-            controller.moveSprite(Player1, 100, 100)
-            picture = 6
-        }
-    }
-})
 forever(function () {
     if (picture == 6) {
         if (Player1.overlapsWith(Shop2)) {
@@ -1781,6 +1769,22 @@ forever(function () {
                 . . . . . f f f f f f . . . . . 
                 . . . . . f f . . f f . . . . . 
                 `)
+        }
+    }
+})
+// Deuxième dialogue avec l'astronaute
+forever(function () {
+    if (picture == 5) {
+        if (Player1.overlapsWith(Astronaute)) {
+            controller.moveSprite(Player1, 0, 0)
+            story.spriteSayText(Astronaute, "Bravo, tu as trouvé la deuxième clé")
+            story.spriteSayText(Astronaute, "Mais il en reste encore une")
+            story.spriteSayText(Astronaute, "Pour cela, tu vas devoir me rendre un service")
+            story.spriteSayText(Astronaute, "Tu dois me ramener un réacteur de fusée")
+            story.spriteSayText(Astronaute, "Bonne chance")
+            game.splash("Ramener le réacteur de fusée à Apollo")
+            controller.moveSprite(Player1, 100, 100)
+            picture = 6
         }
     }
 })
