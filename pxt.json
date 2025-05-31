@@ -6,7 +6,9 @@
         "arcade-background-scroll": "github:microsoft/arcade-background-scroll#6cfbf925b9a4d5ddf3e1078e6cf6ca6a1aebb301",
         "controller": "*",
         "arcade-story": "github:microsoft/arcade-storytelling#v1.0.3",
-        "sprite-scaling": "*"
+        "sprite-scaling": "*",
+        "Color Fading": "github:jwunderl/pxt-color#v0.2.3",
+        "arcade-tile-util": "github:microsoft/arcade-tile-util#v1.2.0"
     },
     "files": [
         "main.blocks",
